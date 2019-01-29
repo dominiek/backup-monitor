@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /workdir
+
 GS_BUCKETS=`cat /workdir/GS_BUCKETS.env`
 EMAIL_ALERT=`cat /workdir/EMAIL_ALERT.env`
 POSTMARK_API_KEY=`cat /workdir/POSTMARK_API_KEY.env`

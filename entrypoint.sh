@@ -15,12 +15,15 @@ echo $POSTMARK_API_KEY > /workdir/POSTMARK_API_KEY.env
 echo $POSTMARK_FROM > /workdir/POSTMARK_FROM.env
 echo $ENVIRONMENT > /workdir/ENVIRONMENT.env
 
+rm -f cron
+touch cron
+
 echo "Setting crontab"
 echo "30 23 * * * /bin/sh /workdir/run.sh >> /workdir/crontab.log 2>> /workdir/crontab.log" >> cron
 echo "0 0 * * 0 /bin/sh /workdir/run_healthcheck.sh >> /workdir/crontab.log 2>> /workdir/crontab.log" >> cron
 
 crontab cron
-rm cron
+
 sh /workdir/run.sh >> /workdir/crontab.log
 sh /workdir/run_healthcheck.sh >> /workdir/crontab.log
 /etc/init.d/cron start

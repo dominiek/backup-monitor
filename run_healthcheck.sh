@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /workdir
+
 EMAIL_HEALTH_CHECK=`cat /workdir/EMAIL_HEALTH_CHECK.env`
 POSTMARK_API_KEY=`cat /workdir/POSTMARK_API_KEY.env`
 POSTMARK_FROM=`cat /workdir/POSTMARK_FROM.env`

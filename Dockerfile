@@ -1,7 +1,7 @@
-FROM ubuntu:trusty
+FROM debian:8.11-slim
 
 RUN apt-get -y update --fix-missing
-RUN apt-get -y install curl bash cron python
+RUN apt-get -y install curl bash cron python make python-virtualenv
 
 RUN mkdir /workdir
 WORKDIR /workdir
